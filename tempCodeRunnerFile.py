@@ -1,0 +1,1 @@
+ladder.animal_at_rung(4)
