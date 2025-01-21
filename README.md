@@ -6,7 +6,7 @@ GDPR Obfuscation tool that can be integrated as a library module into a Python c
 2. [Assumptions](#assumptions)
 3. [Usage](#usage)
 4. [Installation and Instructions](#installation-and-instructions)
-5. [Pre-requisites](#prerequisites)
+5. [Pre-requisites](#pre-requisites)
 6. [Testing](#testing)
 7. [Desired Outcome](#desired-outcome)
 8. [PEP8 and Security](#pep8-and-security)
@@ -39,7 +39,7 @@ OR Import:
 from src.obfuscator import obfuscator
 ```
 
-## Installation_and_Instructions
+## Installation and Instructions
 
 ## Pre-requisites
 Python 3.x: Ensure you have installed latest python version. Check version using
