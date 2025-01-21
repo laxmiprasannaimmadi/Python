@@ -4,12 +4,12 @@ GDPR Obfuscation tool that can be integrated as a library module into a Python c
 ## Table of Contents
 1. [About](#about)
 2. [Assumptions](#assumptions)
-3. [Usage](#usage)
+3. [High-Level Desired Outcome](#high-level-desired-outcome)
 4. [Installation and Instructions](#installation-and-instructions)
-5. [Pre-requisites](#pre-requisites)
-6. [Testing](#testing)
-7. [Desired Outcome](#desired-outcome)
-8. [PEP8 and Security](#pep8-and-security)
+5. [Testing](#testing)
+6. [Usage](#usage)
+7. [PEP8 and Security](#pep8-and-security)
+ 
 
 ## About
 The purpose of this project is to create a general-purpose tool to process data being ingested to AWS and intercept personally identifiable information (PII). All information stored by Northcoders data projects should be for bulk data analysis only. Consequently, there is a requirement under GDPR to ensure that all data containing information that can be used to identify an individual should be anonymised.
@@ -25,23 +25,41 @@ The purpose of this project is to create a general-purpose tool to process data 
 
 2. Fields containing GDPR-sensitive data are known and will be supplied in advance
 
-3. Data records will be supplied with a primary key.
+3. Data records will be supplied with a **primary key**.
 
-## Usage
 
-clone the repo:
-``` 
-git clone https://github.com/laxmiprasannaimmadi/gdpr_obfuscator
+## High-Level Desired Outcome
+
+The tool should be invoked by sending a JSON string containing: 
+- the S3 location of the required CSV file for obfuscation
+- and the names of the fields that are required to be obfuscated
+
+**Example Input:**
+```json
+{
+"file_to_obfuscate": "s3://bucket_name/path_to_data/file.csv",
+"pii_fields": ["name", "surname", "other_filelds_to_mask"]
+}
 ```
 
-OR Import:
+**Target CSV File Example:**
+
 ```
-from src.obfuscator import obfuscator
+student_id,name,course,cohort,graduation_date,email_address
+1234,'John Smith','Software','2024-03-31','j.smith@email.com'
 ```
+**Obfuscated Output Example:**
+
+```
+student_id,name,course,cohort,graduation_date,email_address
+1234,'***','Software','2024-03-31','***'
+```
+
+The output will be a byte-stream representation of the file, compatible with the boto3 S3 PutObject function.
 
 ## Installation and Instructions
 
-## Pre-requisites
+### Pre-requisites
 Python 3.x: Ensure you have installed latest python version. Check version using
 ```
 python --version 
@@ -51,15 +69,13 @@ or
 python3 --version 
 ```
 
-## Set-up 
+### Set-up 
 
-1. Run the following command to set up your virtual environment and install required dependencies:
+1. Run the following command to set up your **virtual environment** and install required dependencies:
     ```
     make requirements
-    ```
-    Or  for local run
-    ```
-        pip install -r ./requirements.txt
+
+    pip install -r ./requirements.txt
     ```
 
 2. Run this command next to set up security and coverage modules:
@@ -77,10 +93,6 @@ python3 --version
     make run-checks
     ```
 
-## Main funciton - Obfuscation
-
-The main code 'obfuscator' will be supplied with a json file path containing the s3 location URL and the PII fields requiring obfuscating. 
-
 ## Testing 
 
 To run unit tests run:
@@ -88,23 +100,17 @@ To run unit tests run:
 make unit-test
 ```
 
-## Desired Outcome
+## Usage
 
-The tool should be invoked by sending a JSON string containing: 
-the S3 location of the required CSV file for obfuscation
-and the names of the fields that are required to be obfuscated
-
-```
-JSON string format:
-{
-"file_to_obfuscate": "s3://bucket_name/path_to_data/file.csv",
-"pii_fields": ["name", "surname", "other_filelds_to_mask"]
-}
-
-masked_data = obfuscator(file_path)
+clone the repo:
+``` 
+git clone https://github.com/laxmiprasannaimmadi/gdpr_obfuscator
 ```
 
-The output will be a byte-stream representation of the file
+Import:
+```
+from src.obfuscator import obfuscator
+```
 
 ## PEP8 and Security
 
