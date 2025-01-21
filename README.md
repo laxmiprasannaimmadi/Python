@@ -19,9 +19,9 @@ The purpose of this project is to create a general-purpose tool to process data 
 
 ## Assumptions 
 1. Data is stored in **CSV format** in S3.
-    This tool uses External Python libralies:
-        :Boto3 for managing AWS resources
-        :Botocore for Error handling available witin AWS enviroment
+This tool uses External Python libralies:
+- Boto3 for managing AWS resources
+- Botocore for Error handling available witin AWS enviroment
 
 2. Fields containing GDPR-sensitive data are known and will be supplied in advance
 
@@ -31,8 +31,8 @@ The purpose of this project is to create a general-purpose tool to process data 
 ## High-Level Desired Outcome
 
 The tool should be invoked by sending a JSON string containing: 
-- the S3 location of the required CSV file for obfuscation
-- and the names of the fields that are required to be obfuscated
+- the S3 location of the required CSV file for obfuscation and
+- the names of the fields that are required to be obfuscated
 
 **Example Input:**
 ```json
@@ -114,7 +114,7 @@ from src.obfuscator import obfuscator
 
 ## PEP8 and Security
 
-Code is written in Python, PEP8 compliant, tested with flake8
+Code is written in Python, PEP8 compliant, tested with flake8.
 
-As well as tested for security vulnerabilities:
-dependency vulnerability safety, security issues bandit.
+As well as tested for security vulnerabilities: dependency vulnerability safety, security issues bandit.
+
