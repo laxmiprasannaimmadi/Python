@@ -38,7 +38,7 @@ The tool should be invoked by sending a JSON string containing:
 ```json
 {
 "file_to_obfuscate": "s3://bucket_name/path_to_data/file.csv",
-"pii_fields": ["name", "surname", "other_filelds_to_mask"]
+"pii_fields": ["name", "email_address"]
 }
 ```
 
@@ -60,7 +60,7 @@ The output will be a byte-stream representation of the file, compatible with the
 ## Installation and Instructions
 
 ### Pre-requisites
-Python 3.x: Ensure you have installed latest python version. Check version using
+Python: Ensure you have installed latest python version. Check version using below command
 ```
 python --version 
 ```
@@ -114,7 +114,7 @@ from src.obfuscator import obfuscator
 
 ## PEP8 and Security
 
-Code is written in Python,
-PEP8 compliant, tested with flake8
+Code is written in Python, PEP8 compliant, tested with flake8
+
 As well as tested for security vulnerabilities:
 dependency vulnerability safety, security issues bandit.
