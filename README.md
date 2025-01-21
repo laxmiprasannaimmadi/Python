@@ -88,7 +88,7 @@ To run unit tests run:
 make unit-test
 ```
 
-## Desired_Outcome
+## Desired Outcome
 
 The tool should be invoked by sending a JSON string containing: 
 the S3 location of the required CSV file for obfuscation
@@ -106,7 +106,7 @@ masked_data = obfuscator(file_path)
 
 The output will be a byte-stream representation of the file
 
-## PEP8_and_security
+## PEP8 and Security
 
 Code is written in Python,
 PEP8 compliant, tested with flake8
