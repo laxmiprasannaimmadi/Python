@@ -6,19 +6,19 @@ GDPR Obfuscation tool that can be integrated as a library module into a Python c
 2. [Assumptions](#assumptions)
 3. [Usage](#usage)
 4. [Installation and Instructions](#installation-and-instructions)
-5. [Prerequisites](#prerequisites)
+5. [Pre-requisites](#prerequisites)
 6. [Testing](#testing)
-7. [Desired_Outcome](#desired-outcome)
-8. [PEP8_and_security](#pep8-and-security)
+7. [Desired Outcome](#desired-outcome)
+8. [PEP8 and Security](#pep8-and-security)
 
 ## About
 The purpose of this project is to create a general-purpose tool to process data being ingested to AWS and intercept personally identifiable information (PII). All information stored by Northcoders data projects should be for bulk data analysis only. Consequently, there is a requirement under GDPR to ensure that all data containing information that can be used to identify an individual should be anonymised.
 
-**This tool written in Python
-**It should be able to read file from AWS S3 using AWS SDK for Python(boto3)
+- This tool written in Python
+- It should be able to read file from AWS S3 using AWS SDK for Python(boto3)
 
 ## Assumptions 
-1. Data is stored in CSV format in S3.
+1. Data is stored in **CSV format** in S3.
     This tool uses External Python libralies:
         :Boto3 for managing AWS resources
         :Botocore for Error handling available witin AWS enviroment
@@ -34,15 +34,15 @@ clone the repo:
 git clone https://github.com/laxmiprasannaimmadi/gdpr_obfuscator
 ```
 
-Import:
+OR Import:
 ```
 from src.obfuscator import obfuscator
 ```
 
 ## Installation_and_Instructions
 
-## Prerequisites
-Python 3.x: ensure you have Python installed. Check version using
+## Pre-requisites
+Python 3.x: Ensure you have installed latest python version. Check version using
 ```
 python --version 
 ```
